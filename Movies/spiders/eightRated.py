@@ -4,17 +4,21 @@ import scrapy
 class MoviesSpider(scrapy.Spider):
     name = "movieCrawler"
 
-    #def start_requests(self):
     start_urls = [
-            'https://yts.mx/browse-movies/0/all/all/8/latest/0/all?page=2',
-            'https://yts.mx/browse-movies/0/all/all/8/latest/0/all?page=3'
+            'https://yts.mx/browse-movies/0/all/all/8/latest/0/all'
+            
         ]
-        #for url in urls:
-        #    yield scrapy.Request(url=url, callback=self.parse)
+ 
     
     def parse(self, response):
-        for movies in response.xpath('//div[@class="browse-movie-bottom"]/a/text()').getall():
-            with open('Movies.txt','w') as f:
-                f.write(movies)
+        for movies in response.css('.browse-movie-bottom>a::text').getall():
+            with open('Movies.txt','a') as f:
+                f.write(f'{movies}\n')
+          
 
-    
+        for i in range(2,44):
+            next_page = 'https://yts.mx/browse-movies/0/all/all/8/latest/0/all?page=' + str(i)
+            if next_page is not None:
+                next_page = response.urljoin(next_page)
+                yield scrapy.Request(next_page, callback=self.parse)
+        
