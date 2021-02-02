@@ -6,3 +6,7 @@ A Web crawler, sometimes called a spider or spiderbot and often shortened to cra
 
 If you want to run it yourself then clone the repo
 then `cd Movies` and find the file `eightRated.py` which should be in the `spiders` directory.
+
+### Working
+![](https://docs.scrapy.org/en/latest/_images/scrapy_architecture_02.png)
+[For more info](https://docs.scrapy.org/en/latest/topics/architecture.html)
