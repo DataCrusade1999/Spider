@@ -1,4 +1,4 @@
-# Spider
+# Spider ![](https://img.shields.io/static/v1?label=Phase&message=Done&color=blueviolet&style=flat&logo=appveyor)    ![](https://img.shields.io/static/v1?label=License&message=MIT&color=blueviolet&style=flat&logo=appveyor)
 
 ### This is more of a Personal Project I've Scrapped all the movies on [Yify](https://yts.mx/) which have the IMDB Rating >= 8 and put all those movies in `Movies.txt` file.
 
